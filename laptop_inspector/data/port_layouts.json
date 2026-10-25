@@ -1,0 +1,164 @@
+{
+  "version": 2,
+  "updated": "2026-10",
+  "note": "Physical port layout per laptop family, in order along each side. Sides are listed REAR to FRONT, which is how the side elevation is drawn. `source` records where the order came from - do not add a model without one, because a wrong side sends the buyer to the wrong end of the machine. The test always offers Skip, so a port option this unit does not have costs nothing.",
+  "layouts": [
+    {
+      "id": "thinkpad-w520",
+      "family": "ThinkPad W520",
+      "match": [
+        "thinkpad\\s*w520",
+        "^4282",
+        "^4283",
+        "^4284",
+        "^4286"
+      ],
+      "source": "Lenovo service documentation and the 2011 notebookcheck / IT168 teardowns, cross-checked against a photograph of the left edge.",
+      "ports": [
+        {
+          "side": "left",
+          "label": "DisplayPort",
+          "kind": "video"
+        },
+        {
+          "side": "left",
+          "label": "VGA",
+          "kind": "video"
+        },
+        {
+          "side": "left",
+          "label": "USB 3.0",
+          "kind": "usb-a"
+        },
+        {
+          "side": "left",
+          "label": "USB 3.0",
+          "kind": "usb-a"
+        },
+        {
+          "side": "left",
+          "label": "USB 2.0 / eSATA",
+          "kind": "usb-a"
+        },
+        {
+          "side": "left",
+          "label": "FireWire 400",
+          "kind": "firewire"
+        },
+        {
+          "side": "left",
+          "label": "WiFi switch",
+          "kind": "switch"
+        },
+        {
+          "side": "right",
+          "label": "Kensington lock",
+          "kind": "lock"
+        },
+        {
+          "side": "right",
+          "label": "Ethernet",
+          "kind": "network"
+        },
+        {
+          "side": "right",
+          "label": "DVD drive",
+          "kind": "optical"
+        },
+        {
+          "side": "right",
+          "label": "Headphone / mic",
+          "kind": "audio"
+        },
+        {
+          "side": "right",
+          "label": "Card reader",
+          "kind": "card"
+        },
+        {
+          "side": "right",
+          "label": "ExpressCard/34",
+          "kind": "expresscard"
+        },
+        {
+          "side": "rear",
+          "label": "Power",
+          "kind": "power"
+        },
+        {
+          "side": "rear",
+          "label": "Modem",
+          "kind": "modem"
+        },
+        {
+          "side": "rear",
+          "label": "USB 2.0 (powered)",
+          "kind": "usb-a"
+        },
+        {
+          "side": "rear",
+          "label": "Battery",
+          "kind": "battery"
+        }
+      ]
+    },
+    {
+      "id": "generic",
+      "family": "Generic laptop",
+      "match": [],
+      "source": "A common layout only. This model is not in the table, so the sides may not match the machine - skip anything that is not there.",
+      "ports": [
+        {
+          "side": "left",
+          "label": "USB 3.0",
+          "kind": "usb-a"
+        },
+        {
+          "side": "left",
+          "label": "USB 2.0",
+          "kind": "usb-a"
+        },
+        {
+          "side": "left",
+          "label": "HDMI",
+          "kind": "video"
+        },
+        {
+          "side": "left",
+          "label": "Headphone",
+          "kind": "audio"
+        },
+        {
+          "side": "right",
+          "label": "USB-C",
+          "kind": "usb-c"
+        },
+        {
+          "side": "right",
+          "label": "USB 3.0",
+          "kind": "usb-a"
+        },
+        {
+          "side": "right",
+          "label": "Card reader",
+          "kind": "card"
+        },
+        {
+          "side": "right",
+          "label": "Kensington lock",
+          "kind": "lock"
+        },
+        {
+          "side": "rear",
+          "label": "Power",
+          "kind": "power"
+        },
+        {
+          "side": "rear",
+          "label": "Ethernet",
+          "kind": "network"
+        }
+      ]
+    }
+  ]
+}

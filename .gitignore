@@ -1,0 +1,29 @@
+# build output
+dist/
+dist_pe/
+dist_test/
+dist_ab/
+dist_nouac/
+build/
+build_pe/
+build_test/
+build_ab/
+build_nouac/
+*.spec.bak
+
+# scan output - contains real machine serials, never commit these
+out/
+reports/
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# editors / os
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

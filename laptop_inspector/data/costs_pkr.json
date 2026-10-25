@@ -1,0 +1,47 @@
+{
+  "currency": "PKR",
+  "updated": "2026-10",
+  "region": "Pakistan (Lahore / Karachi used market)",
+  "note": "Tune these. Every number here lands directly in the counter-offer the buyer reads out loud.",
+  "items": {
+    "battery_replacement": 15000,
+    "battery_replacement_workstation": 19000,
+    "thermal_service": 3500,
+    "fan_replacement": 6000,
+    "heatsink_replacement": 8500,
+    "ssd_nvme_256": 6000,
+    "ssd_nvme_512": 9000,
+    "ssd_nvme_1tb": 15000,
+    "ssd_nvme_2tb": 26000,
+    "ssd_sata_256": 5000,
+    "ssd_sata_512": 8000,
+    "ssd_sata_1tb": 13000,
+    "hdd_1tb": 9000,
+    "hdd_2tb": 14000,
+    "ram_8gb_ddr3": 6000,
+    "ram_8gb_ddr4": 7000,
+    "ram_16gb_ddr4": 13000,
+    "ram_16gb_ddr5": 19000,
+    "windows_license": 12000,
+    "motherboard_repair": 18000,
+    "gpu_reflow": 12000,
+    "gpu_replacement_mainboard": 22000,
+    "screen_panel_15": 18000,
+    "screen_panel_14": 16000,
+    "keyboard": 5000,
+    "charger": 4500,
+    "hinge_repair": 4000,
+    "dc_jack_repair": 3500
+  },
+  "severity_multiplier": {
+    "info": 0.0,
+    "warn": 1.0,
+    "major": 1.0,
+    "critical": 1.0
+  },
+  "negotiation": {
+    "risk_buffer_pct": 10,
+    "walk_away_discount_pct": 45,
+    "hard_walk_score": 45
+  }
+}

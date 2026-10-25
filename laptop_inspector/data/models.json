@@ -1,0 +1,642 @@
+{
+  "version": 1,
+  "updated": "2026-10",
+  "note": "Model -> factory GPU options. `match` patterns are case-insensitive regexes tested against Model, SystemFamily, product Version/Name and SKU. ThinkPads report the 4-char machine type (4282AC5) in Win32_ComputerSystem.Model, so the prefixes matter. dgpu_standard=true means every SKU shipped with a discrete GPU, so its absence is a real red flag.",
+  "models": [
+    {
+      "id": "thinkpad-w520",
+      "brand": "Lenovo",
+      "family": "ThinkPad W520",
+      "years": "2011",
+      "match": ["thinkpad\\s*w520", "^42(42|43|62|63|70|71|76|82|83|84)"],
+      "igpu": "Intel HD Graphics 3000",
+      "dgpu": ["NVIDIA Quadro 1000M", "NVIDIA Quadro 2000M"],
+      "dgpu_standard": false,
+      "notes": "Quadro optional from factory; many units are iGPU-only. Optimus. dGPU is commonly disabled in BIOS when the MXM card or its power rail fails."
+    },
+    {
+      "id": "thinkpad-w530",
+      "brand": "Lenovo",
+      "family": "ThinkPad W530",
+      "years": "2012",
+      "match": ["thinkpad\\s*w530", "^24(36|38|41|47|55)"],
+      "igpu": "Intel HD Graphics 4000",
+      "dgpu": ["NVIDIA Quadro K1000M", "NVIDIA Quadro K2000M"],
+      "dgpu_standard": false,
+      "notes": "Optimus. Same BIOS-disable failure mode as the W520."
+    },
+    {
+      "id": "thinkpad-w540",
+      "brand": "Lenovo",
+      "family": "ThinkPad W540",
+      "years": "2013",
+      "match": ["thinkpad\\s*w540", "^20(BH|BG|K6)"],
+      "igpu": "Intel HD Graphics 4600",
+      "dgpu": ["NVIDIA Quadro K1100M", "NVIDIA Quadro K2100M"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "thinkpad-p50",
+      "brand": "Lenovo",
+      "family": "ThinkPad P50",
+      "years": "2015",
+      "match": ["thinkpad\\s*p50", "^20(EN|EQ)"],
+      "igpu": "Intel HD Graphics P530",
+      "dgpu": ["NVIDIA Quadro M1000M", "NVIDIA Quadro M2000M"],
+      "dgpu_standard": true,
+      "notes": "Every P50 shipped with a Quadro. None enumerating is a strong signal."
+    },
+    {
+      "id": "thinkpad-p51",
+      "brand": "Lenovo",
+      "family": "ThinkPad P51",
+      "years": "2017",
+      "match": ["thinkpad\\s*p51", "^20(HH|MM|MN)"],
+      "igpu": "Intel HD Graphics P630",
+      "dgpu": ["NVIDIA Quadro M1200", "NVIDIA Quadro M2200"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "thinkpad-p52",
+      "brand": "Lenovo",
+      "family": "ThinkPad P52",
+      "years": "2018",
+      "match": ["thinkpad\\s*p52", "^20(M9|NA)"],
+      "igpu": "Intel UHD Graphics P630",
+      "dgpu": ["NVIDIA Quadro P1000", "NVIDIA Quadro P2000"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "thinkpad-t440p",
+      "brand": "Lenovo",
+      "family": "ThinkPad T440p",
+      "years": "2013",
+      "match": ["thinkpad\\s*t440p", "^20(AN|AW)"],
+      "igpu": "Intel HD Graphics 4600",
+      "dgpu": ["NVIDIA GeForce GT 730M"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "thinkpad-t460p",
+      "brand": "Lenovo",
+      "family": "ThinkPad T460p",
+      "years": "2016",
+      "match": ["thinkpad\\s*t460p", "^20(FW|FX)"],
+      "igpu": "Intel HD Graphics 530",
+      "dgpu": ["NVIDIA GeForce 940MX"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "thinkpad-t470p",
+      "brand": "Lenovo",
+      "family": "ThinkPad T470p",
+      "years": "2017",
+      "match": ["thinkpad\\s*t470p", "^20(J6|J7)"],
+      "igpu": "Intel HD Graphics 630",
+      "dgpu": ["NVIDIA GeForce 940MX"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "thinkpad-t480",
+      "brand": "Lenovo",
+      "family": "ThinkPad T480",
+      "years": "2018",
+      "match": ["thinkpad\\s*t480", "^20(L5|L6)"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX150"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "thinkpad-t490",
+      "brand": "Lenovo",
+      "family": "ThinkPad T490",
+      "years": "2019",
+      "match": ["thinkpad\\s*t490", "^20(N2|N3)"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX250"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "thinkpad-x1-extreme-g1",
+      "brand": "Lenovo",
+      "family": "ThinkPad X1 Extreme Gen 1",
+      "years": "2018",
+      "match": ["x1\\s*extreme", "^20(MF|MG)"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050 Ti Max-Q"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "thinkpad-x1-extreme-g2",
+      "brand": "Lenovo",
+      "family": "ThinkPad X1 Extreme Gen 2",
+      "years": "2019",
+      "match": ["x1\\s*extreme\\s*gen\\s*2", "^20(QV|QW)"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1650 Max-Q"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "thinkpad-p1-g2",
+      "brand": "Lenovo",
+      "family": "ThinkPad P1 Gen 2",
+      "years": "2019",
+      "match": ["thinkpad\\s*p1\\s*gen\\s*2", "^20(QT|QU)"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA Quadro T1000", "NVIDIA Quadro T2000"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "lenovo-l340-gaming",
+      "brand": "Lenovo",
+      "family": "IdeaPad L340 Gaming",
+      "years": "2019",
+      "match": ["l340.*gaming", "^81(LK|LL)"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "lenovo-legion-y540",
+      "brand": "Lenovo",
+      "family": "Legion Y540",
+      "years": "2019",
+      "match": ["legion\\s*y540", "^81(SY|SZ)"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1650", "NVIDIA GeForce GTX 1660 Ti"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "lenovo-legion-5",
+      "brand": "Lenovo",
+      "family": "Legion 5",
+      "years": "2020",
+      "match": ["legion\\s*5(?!\\d)", "^82(B0|B1|B5)"],
+      "igpu": "Intel UHD / AMD Radeon Graphics",
+      "dgpu": ["NVIDIA GeForce GTX 1650", "NVIDIA GeForce RTX 2060"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "lenovo-ideapad-gaming-3",
+      "brand": "Lenovo",
+      "family": "IdeaPad Gaming 3",
+      "years": "2021",
+      "match": ["ideapad\\s*gaming\\s*3", "^82(K1|K2|K3|K4)"],
+      "igpu": "Intel UHD / AMD Radeon Graphics",
+      "dgpu": ["NVIDIA GeForce GTX 1650", "NVIDIA GeForce RTX 3050"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "lenovo-yoga-730-15",
+      "brand": "Lenovo",
+      "family": "Yoga 730-15",
+      "years": "2018",
+      "match": ["yoga\\s*730-15", "^81(CT|CU)"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce GTX 1050"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "dell-xps-15-9550",
+      "brand": "Dell",
+      "family": "XPS 15 9550",
+      "years": "2015",
+      "match": ["xps\\s*15\\s*9550", "^0?9550"],
+      "igpu": "Intel HD Graphics 530",
+      "dgpu": ["NVIDIA GeForce GTX 960M"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-xps-15-9560",
+      "brand": "Dell",
+      "family": "XPS 15 9560",
+      "years": "2017",
+      "match": ["xps\\s*15\\s*9560", "^0?9560"],
+      "igpu": "Intel HD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-xps-15-9570",
+      "brand": "Dell",
+      "family": "XPS 15 9570",
+      "years": "2018",
+      "match": ["xps\\s*15\\s*9570", "^0?9570"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050 Ti"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-xps-15-7590",
+      "brand": "Dell",
+      "family": "XPS 15 7590",
+      "years": "2019",
+      "match": ["xps\\s*15\\s*7590", "^0?7590"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1650"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-latitude-e6430",
+      "brand": "Dell",
+      "family": "Latitude E6430",
+      "years": "2012",
+      "match": ["latitude\\s*e6430"],
+      "igpu": "Intel HD Graphics 4000",
+      "dgpu": ["NVIDIA NVS 5200M"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "dell-latitude-e6440",
+      "brand": "Dell",
+      "family": "Latitude E6440",
+      "years": "2013",
+      "match": ["latitude\\s*e6440"],
+      "igpu": "Intel HD Graphics 4600",
+      "dgpu": ["AMD Radeon HD 8690M"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "dell-precision-7510",
+      "brand": "Dell",
+      "family": "Precision 7510",
+      "years": "2016",
+      "match": ["precision\\s*7510", "^0?7510"],
+      "igpu": "Intel HD Graphics P530",
+      "dgpu": ["NVIDIA Quadro M1000M", "NVIDIA Quadro M2000M"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-precision-7520",
+      "brand": "Dell",
+      "family": "Precision 7520",
+      "years": "2017",
+      "match": ["precision\\s*7520", "^0?7520"],
+      "igpu": "Intel HD Graphics P630",
+      "dgpu": ["NVIDIA Quadro M1200", "NVIDIA Quadro M2200"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-inspiron-7567",
+      "brand": "Dell",
+      "family": "Inspiron 15 7567",
+      "years": "2017",
+      "match": ["inspiron\\s*15\\s*7567", "^0?7567"],
+      "igpu": "Intel HD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050 Ti"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-g3-3579",
+      "brand": "Dell",
+      "family": "G3 3579",
+      "years": "2018",
+      "match": ["g3\\s*3579", "^0?3579"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-g15-5511",
+      "brand": "Dell",
+      "family": "G15 5511",
+      "years": "2021",
+      "match": ["g15\\s*5511", "^0?5511"],
+      "igpu": "Intel UHD Graphics",
+      "dgpu": ["NVIDIA GeForce RTX 3050", "NVIDIA GeForce RTX 3060"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "dell-vostro-5471",
+      "brand": "Dell",
+      "family": "Vostro 5471",
+      "years": "2018",
+      "match": ["vostro\\s*5471"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["AMD Radeon 530"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "hp-elitebook-8570w",
+      "brand": "HP",
+      "family": "EliteBook 8570w",
+      "years": "2012",
+      "match": ["elitebook\\s*8570w"],
+      "igpu": "Intel HD Graphics 4000",
+      "dgpu": ["NVIDIA Quadro K1000M", "NVIDIA Quadro K2000M"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "hp-zbook-15-g3",
+      "brand": "HP",
+      "family": "ZBook 15 G3",
+      "years": "2016",
+      "match": ["zbook\\s*15\\s*g3"],
+      "igpu": "Intel HD Graphics P530",
+      "dgpu": ["NVIDIA Quadro M1000M", "NVIDIA Quadro M2000M"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "hp-zbook-15-g5",
+      "brand": "HP",
+      "family": "ZBook 15 G5",
+      "years": "2018",
+      "match": ["zbook\\s*15\\s*g5"],
+      "igpu": "Intel UHD Graphics P630",
+      "dgpu": ["NVIDIA Quadro P1000", "NVIDIA Quadro P2000"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "hp-probook-450-g5",
+      "brand": "HP",
+      "family": "ProBook 450 G5",
+      "years": "2018",
+      "match": ["probook\\s*450\\s*g5"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX130"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "hp-pavilion-gaming-15",
+      "brand": "HP",
+      "family": "Pavilion Gaming 15",
+      "years": "2018",
+      "match": ["pavilion\\s*gaming\\s*15", "pavilion\\s*15-?cx"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "hp-omen-15",
+      "brand": "HP",
+      "family": "Omen 15",
+      "years": "2019",
+      "match": ["omen\\s*15"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1660 Ti", "NVIDIA GeForce RTX 2060"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "hp-spectre-x360-15",
+      "brand": "HP",
+      "family": "Spectre x360 15",
+      "years": "2019",
+      "match": ["spectre\\s*x360\\s*15"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX150"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "hp-elitebook-840-g5",
+      "brand": "HP",
+      "family": "EliteBook 840 G5",
+      "years": "2018",
+      "match": ["elitebook\\s*840\\s*g5"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": [],
+      "dgpu_standard": false,
+      "notes": "Control case: never shipped with a dGPU. A dGPU here means a swapped board."
+    },
+    {
+      "id": "asus-rog-gl552vw",
+      "brand": "Asus",
+      "family": "ROG GL552VW",
+      "years": "2016",
+      "match": ["gl552vw", "rog\\s*gl552"],
+      "igpu": "Intel HD Graphics 530",
+      "dgpu": ["NVIDIA GeForce GTX 960M"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "asus-rog-strix-gl503",
+      "brand": "Asus",
+      "family": "ROG Strix GL503",
+      "years": "2017",
+      "match": ["gl503", "strix\\s*gl503"],
+      "igpu": "Intel HD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050 Ti"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "asus-tuf-fx504",
+      "brand": "Asus",
+      "family": "TUF Gaming FX504",
+      "years": "2018",
+      "match": ["fx504", "tuf\\s*gaming\\s*fx504"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050 Ti"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "asus-zenbook-ux430un",
+      "brand": "Asus",
+      "family": "ZenBook UX430UN",
+      "years": "2018",
+      "match": ["ux430un"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX150"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "asus-zephyrus-g14",
+      "brand": "Asus",
+      "family": "ROG Zephyrus G14",
+      "years": "2020",
+      "match": ["zephyrus\\s*g14", "ga401"],
+      "igpu": "AMD Radeon Graphics",
+      "dgpu": ["NVIDIA GeForce GTX 1650", "NVIDIA GeForce RTX 2060"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "asus-vivobook-x542",
+      "brand": "Asus",
+      "family": "VivoBook X542",
+      "years": "2017",
+      "match": ["x542u"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce 940MX"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "asus-rog-strix-g15",
+      "brand": "Asus",
+      "family": "ROG Strix G15 G513",
+      "years": "2021",
+      "match": ["g513", "strix\\s*g15"],
+      "igpu": "AMD Radeon Graphics",
+      "dgpu": ["NVIDIA GeForce RTX 3060"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "acer-aspire-a515-51g",
+      "brand": "Acer",
+      "family": "Aspire A515-51G",
+      "years": "2017",
+      "match": ["a515-51g"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX150"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "acer-nitro-5-an515",
+      "brand": "Acer",
+      "family": "Nitro 5 AN515",
+      "years": "2018",
+      "match": ["an515", "nitro\\s*5"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050 Ti", "NVIDIA GeForce GTX 1650"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "acer-predator-helios-300",
+      "brand": "Acer",
+      "family": "Predator Helios 300",
+      "years": "2019",
+      "match": ["helios\\s*300", "ph315"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1660 Ti"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "acer-swift-3-sf314",
+      "brand": "Acer",
+      "family": "Swift 3 SF314",
+      "years": "2019",
+      "match": ["sf314"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX250"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "msi-gf63",
+      "brand": "MSI",
+      "family": "GF63",
+      "years": "2018",
+      "match": ["gf63", "ms-16r"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "msi-ge75-raider",
+      "brand": "MSI",
+      "family": "GE75 Raider",
+      "years": "2019",
+      "match": ["ge75", "ms-17e"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce RTX 2060"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "msi-modern-14",
+      "brand": "MSI",
+      "family": "Modern 14",
+      "years": "2020",
+      "match": ["modern\\s*14", "ms-14"],
+      "igpu": "Intel UHD Graphics",
+      "dgpu": [],
+      "dgpu_standard": false,
+      "notes": "Control case: no dGPU variant exists."
+    },
+    {
+      "id": "msi-gp65-leopard",
+      "brand": "MSI",
+      "family": "GP65 Leopard",
+      "years": "2019",
+      "match": ["gp65", "ms-16u"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1660 Ti"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "apple-mbp-15-2015",
+      "brand": "Apple",
+      "family": "MacBook Pro 15 2015",
+      "years": "2015",
+      "match": ["macbook\\s*pro.*15", "a1398"],
+      "igpu": "Intel Iris Pro Graphics",
+      "dgpu": ["AMD Radeon R9 M370X"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "apple-mbp-16-2019",
+      "brand": "Apple",
+      "family": "MacBook Pro 16 2019",
+      "years": "2019",
+      "match": ["macbook\\s*pro.*16", "a2141"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["AMD Radeon Pro 5300M", "AMD Radeon Pro 5500M"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "toshiba-satellite-p50",
+      "brand": "Toshiba",
+      "family": "Satellite P50",
+      "years": "2013",
+      "match": ["satellite\\s*p50"],
+      "igpu": "Intel HD Graphics 4600",
+      "dgpu": ["NVIDIA GeForce GT 740M"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "samsung-notebook-odyssey",
+      "brand": "Samsung",
+      "family": "Notebook Odyssey",
+      "years": "2017",
+      "match": ["odyssey", "np800"],
+      "igpu": "Intel HD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "sony-vaio-svs15",
+      "brand": "Sony",
+      "family": "VAIO S SVS15",
+      "years": "2012",
+      "match": ["svs15", "vaio\\s*s"],
+      "igpu": "Intel HD Graphics 4000",
+      "dgpu": ["NVIDIA GeForce GT 640M LE"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "clevo-n850hk1",
+      "brand": "Clevo",
+      "family": "N850HK1",
+      "years": "2017",
+      "match": ["n850hk1", "clevo\\s*n850"],
+      "igpu": "Intel HD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1050 Ti"],
+      "dgpu_standard": true
+    },
+    {
+      "id": "huawei-matebook-x-pro",
+      "brand": "Huawei",
+      "family": "MateBook X Pro",
+      "years": "2018",
+      "match": ["matebook\\s*x\\s*pro"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX150"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "xiaomi-mi-notebook-pro",
+      "brand": "Xiaomi",
+      "family": "Mi Notebook Pro",
+      "years": "2018",
+      "match": ["mi\\s*notebook\\s*pro", "tm1701"],
+      "igpu": "Intel UHD Graphics 620",
+      "dgpu": ["NVIDIA GeForce MX150"],
+      "dgpu_standard": false
+    },
+    {
+      "id": "hasee-z7",
+      "brand": "Hasee",
+      "family": "Z7",
+      "years": "2019",
+      "match": ["hasee\\s*z7", "z7-ct"],
+      "igpu": "Intel UHD Graphics 630",
+      "dgpu": ["NVIDIA GeForce GTX 1650"],
+      "dgpu_standard": true
+    }
+  ]
+}

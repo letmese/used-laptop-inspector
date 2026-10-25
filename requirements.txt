@@ -1,0 +1,8 @@
+# Used Laptop Inspector - runtime dependencies
+#
+# That is the whole list. Everything else is stdlib or ctypes against Windows
+# DLLs already on the machine. No smartmontools, no Sysinternals, no reportlab.
+#
+# Build-only:
+#   pip install pyinstaller
+PySide6>=6.6,<7

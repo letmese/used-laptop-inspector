@@ -1,0 +1,482 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://antigravity.pk/used-laptop-inspector/report.schema.json",
+  "title": "Used Laptop Inspector report",
+  "description": "Output contract for the Android companion app. Additive changes only within a schema_version; anything breaking bumps it.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "tool_version",
+    "generated_at",
+    "machine",
+    "score",
+    "verdict",
+    "checks",
+    "negotiation"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "examples": [
+        "1.0"
+      ]
+    },
+    "tool_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string",
+      "description": "Local time, ISO 8601 without timezone offset."
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "windows",
+        "winpe"
+      ]
+    },
+    "admin": {
+      "type": "boolean",
+      "description": "False means storage health was not read. Treat as an incomplete report."
+    },
+    "duration_s": {
+      "type": "number",
+      "minimum": 0
+    },
+    "machine": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "manufacturer": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "cpu": {
+          "type": "string"
+        },
+        "cpu_cores": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "cpu_threads": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "ram_gb": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Installed, binary GB"
+        },
+        "ram_usable_gb": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "storage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "size_gb": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "description": "Decimal GB"
+              },
+              "bus": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "examples": [
+                  "NVMe",
+                  "SATA"
+                ]
+              },
+              "media": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "examples": [
+                  "SSD",
+                  "HDD"
+                ]
+              }
+            }
+          }
+        },
+        "gpus": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "screen": {
+          "type": "object",
+          "properties": {
+            "resolution": {
+              "type": "string"
+            },
+            "refresh_hz": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        },
+        "bios": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "serial": {
+          "type": "string"
+        },
+        "oem_key": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "OEM Windows key from the ACPI MSDM table. Null on pre-Windows 8 machines, which is normal."
+        },
+        "os": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "claims": {
+      "type": "object",
+      "description": "What the seller claimed, as supplied by the caller.",
+      "additionalProperties": true
+    },
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "BUY",
+        "NEGOTIATE",
+        "WALK AWAY"
+      ]
+    },
+    "verdict_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "label",
+          "status",
+          "score",
+          "weight",
+          "findings",
+          "data"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "specs",
+              "battery",
+              "storage",
+              "thermal",
+              "gpu",
+              "dgpu",
+              "interactive",
+              "peripherals"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "warn",
+              "fail",
+              "unavailable",
+              "error"
+            ],
+            "description": "unavailable and error are excluded from the weighted score."
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "summary": {
+            "type": "string"
+          },
+          "duration_s": {
+            "type": "number"
+          },
+          "error": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "severity",
+                "title"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Stable identifier, safe to switch on."
+                },
+                "severity": {
+                  "type": "string",
+                  "enum": [
+                    "info",
+                    "warn",
+                    "major",
+                    "critical"
+                  ]
+                },
+                "title": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "evidence": {
+                  "type": "object",
+                  "description": "The numbers that produced the finding. Always render these - a score with no evidence is not worth showing.",
+                  "additionalProperties": true
+                },
+                "cost_pkr": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "cost_note": {
+                  "type": "string"
+                },
+                "blocking": {
+                  "type": "boolean",
+                  "description": "True means do not buy at any price, regardless of score."
+                },
+                "upgrade": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "data": {
+            "type": "object",
+            "description": "Raw per-check payload. Structure varies by check key; treat as opaque but stable.",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "negotiation": {
+      "type": "object",
+      "required": [
+        "items",
+        "total_repair_pkr"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "asking_price_pkr": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "cost_pkr",
+              "severity"
+            ],
+            "properties": {
+              "check": {
+                "type": "string"
+              },
+              "check_label": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "blocking": {
+                "type": "boolean"
+              },
+              "cost_pkr": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "total_repair_pkr": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "suggested_offer_pkr": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "max_offer_pkr": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "discount_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "advice": {
+          "type": "string"
+        },
+        "walk_away": {
+          "type": "boolean"
+        },
+        "market_price_pkr": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "fair_value_pkr": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "price_basis": {
+          "type": "string"
+        },
+        "market_source": {
+          "type": "string"
+        },
+        "market_note": {
+          "type": "string"
+        },
+        "walk_away_reason": {
+          "type": "string"
+        },
+        "upgrades": {
+          "type": "array"
+        }
+      }
+    },
+    "extras": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "score_breakdown": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "weight": {
+                "type": "number"
+              },
+              "effective_weight": {
+                "type": "number"
+              },
+              "contribution": {
+                "type": "number"
+              },
+              "status": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "license": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "collector_log": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "market": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+Desktop web app screen, dark theme, 1440x940. "Used Laptop Inspector" — a Windows diagnostic tool used by buyers at a used-laptop market. Someone has ten minutes at a counter to decide whether to buy a second-hand laptop, so the screen must answer one question instantly: BUY, NEGOTIATE, or WALK AWAY.
+
+TOP BAR, 64px, dark. Left: small shield icon, product name in small letterspaced caps, then the detected machine "Lenovo ThinkPad W520" in bold. Right: a ghost "Claims" button, a "Fast" checkbox, a primary blue "Run scan" button, an "Export" dropdown.
+
+HERO BAND, 140px, subtle horizontal gradient tinted amber fading into near-black. Far left: a circular score ring 116px showing "73" with "OF 100" beneath, arc in amber. Middle: the verdict "NEGOTIATE" in huge 30px bold amber, with one short grey reason line under it. Right: three stat blocks side by side, tiny letterspaced captions over bold numbers: "REPAIR EXPOSURE 25,100 PKR", "SUGGESTED OFFER 57,390 PKR", "FINDINGS 11".
+
+BODY, two columns 320px and the rest. Left rail: seven rows — Verdict & negotiation, Specs & authenticity, Battery, Storage health, Thermals & throttling, GPU sanity, Discrete GPU presence. Each row: check name left, score number right coloured green/amber/red, one grey summary line beneath, thin 3px progress bar at the bottom. Selected row has a soft lighter background and a 3px vertical accent bar on its left edge. No borders between rows.
+
+Right pane, stacked cards with 10px radius. Card "WHAT IT COSTS TO PUT RIGHT": two-column list of defects and cost in PKR, numbers right-aligned bold. Divider, then "Total repair exposure 25,100 PKR". Divider, then a bright green counter-offer line "Asking 85,000 PKR  Offer 57,390 PKR  Ceiling 59,900 PKR", then two lines of grey explanatory text. Card "SCORE BREAKDOWN": table with columns CHECK / SCORE / WEIGHT / STATUS, scores coloured by health, status as small letterspaced labels.
+
+FOOTER 36px: thin progress bar and "Scan complete in 32s".
+
+STYLE: near-black background #080B10, cards one step lighter #0F141B, hairline borders #212C39, not heavy strokes. One structural accent blue #4C9AFF for the primary action. Semantic colour only where it means something: green #2ECC71, amber #FFB02E, red #FF5C5C. Typeface Segoe UI Variable or Inter. Verdict 30px bold, check names 13px semibold, body 12.5px, captions 10px uppercase with 1.5px letter spacing. Tabular figures for numbers. 8px spacing rhythm, 10px card radius, no drop shadows. Dense but breathable. Looks like a professional instrument — a mechanic's diagnostic tablet, not a consumer app.
